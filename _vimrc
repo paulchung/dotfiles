@@ -11,9 +11,6 @@ set nocompatible
 set backspace=2
 set laststatus=2   " Always show the statusline
 
-highlight ExtraWhitespace ctermbg=red guibg=red    
-match ExtraWhitespace /\s\+$/
-
 "colorscheme ron
 
 "statusline setting                                                                                  
