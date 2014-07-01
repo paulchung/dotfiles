@@ -1,4 +1,4 @@
-set background=dark
+"set background=dark
 
 set cindent
 set tabstop=4
@@ -11,10 +11,9 @@ set nocompatible
 set backspace=2
 set laststatus=2   " Always show the statusline
 
+
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-"colorscheme ron
 
 "statusline setting
 set ls=2
@@ -31,6 +30,10 @@ set wildmenu
 
 filetype off
 
+set t_Co=256
+
+"colorscheme darkdevel
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'git://github.com/gmarik/vundle.git'
@@ -40,6 +43,7 @@ Bundle 'git://github.com/ap/vim-css-color.git'
 " super usefull grep tool
 Bundle 'git://github.com/vim-scripts/EasyGrep.git'
 Bundle 'git://github.com/scrooloose/nerdtree.git'
+Bundle 'git://github.com/beyondwords/vim-twig.git'
 " enhanced autocomplete
 " Bundle 'git://github.com/othree/vim-autocomplpop.git'
 
@@ -62,3 +66,7 @@ filetype plugin indent on
 
 set listchars=tab:=.,trail:.
 set list
+
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+let loaded_matchparen = 1
