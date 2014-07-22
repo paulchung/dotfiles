@@ -69,4 +69,8 @@ set list
 
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+:vnoremap < <gv
+:vnoremap > >gv
 let loaded_matchparen = 1
+
+nmap <F1> :NERDTreeToggle<CR>
