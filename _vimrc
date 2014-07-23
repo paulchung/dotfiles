@@ -5,6 +5,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set cursorline
+
 "set nu
 
 set nocompatible
@@ -44,8 +45,6 @@ Bundle 'git://github.com/ap/vim-css-color.git'
 Bundle 'git://github.com/vim-scripts/EasyGrep.git'
 Bundle 'git://github.com/scrooloose/nerdtree.git'
 Bundle 'git://github.com/beyondwords/vim-twig.git'
-" enhanced autocomplete
-" Bundle 'git://github.com/othree/vim-autocomplpop.git'
 
 set fileencodings=utf-8,gb2312,ucs-bom,big5
 set termencoding=utf-8
@@ -58,6 +57,24 @@ set statusline+=%4*%=[%{&encoding},%{&fenc},%{&fileformat}
 set statusline+=%{\"\".((exists(\"+bomb\")\ &&\ &bomb)?\",BOM\":\"\").\"\"}]\ %6*%y%4*\ %3*%l%4*,\ %3*%c%4*\ \<\ %2*%P%4*\ \>
 
 syntax on
+
+au BufNewFile,BufRead *.json setf json
+
+" template
+function LoadHTMLTemplate()
+    0r ~/.vim/template/production.html
+    normal Gdd
+endfunction
+function LoadPHPTemplate()
+    0r ~/.vim/template/production.php
+    normal Gdd
+endfunction
+
+autocmd BufNewFile *.html call LoadHTMLTemplate()
+autocmd BufNewFile *.php call LoadPHPTemplate()
+autocmd FileType css set omnifunc=csscomplete
+
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 highlight Search ctermbg=black  ctermfg=white guifg=white guibg=black
 highlight Comment ctermfg=darkgreen guibg=darkblue guifg=lightred
@@ -74,3 +91,5 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 let loaded_matchparen = 1
 
 nmap <F1> :NERDTreeToggle<CR>
+
+map <F5> :!php -l %<CR>
