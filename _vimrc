@@ -12,6 +12,8 @@ set nocompatible
 set backspace=2
 set laststatus=2   " Always show the statusline
 
+"set paste
+":set nopaste
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -65,12 +67,17 @@ function LoadHTMLTemplate()
     0r ~/.vim/template/production.html
     normal Gdd
 endfunction
+function LoadTwigTemplate()
+    0r ~/.vim/template/production.html.twig
+    normal Gdd
+endfunction
 function LoadPHPTemplate()
     0r ~/.vim/template/production.php
     normal Gdd
 endfunction
 
 autocmd BufNewFile *.html call LoadHTMLTemplate()
+autocmd BufNewFile *.html.twig call LoadTwigTemplate()
 autocmd BufNewFile *.php call LoadPHPTemplate()
 autocmd FileType css set omnifunc=csscomplete
 
