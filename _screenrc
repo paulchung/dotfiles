@@ -36,10 +36,10 @@ shelltitle '$ |bash'
 vbell off
 
 # Keboard binding
-# bind F11 to move to previous window
-bindkey -k F1 prev
-# bind F12 to move to next window
-bindkey -k F2 next 
+# bind F2 to move to previous window
+bindkey -k F2 prev
+# bind F3 to move to next window
+bindkey -k F3 next 
 # bind Alt`~= to screen0~12
 bindkey "^[`" select 0
 bindkey "^[1" select 1
@@ -54,6 +54,7 @@ bindkey "^[9" select 9
 bindkey "^[0" select 10
 bindkey "^[-" select 11
 bindkey "^[=" select 12
+
 # bind F7 to detach screen session (to background)
 bindkey -k k7 detach
 # bind F8 to kill current screen window
